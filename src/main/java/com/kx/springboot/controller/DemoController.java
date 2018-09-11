@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class DemoController {
 
     @Autowired
     private RedisService redisService ;
+
 
 
     @RequestMapping(value = "/test",method = RequestMethod.POST)
@@ -42,6 +45,21 @@ public class DemoController {
             list.add(String.valueOf(i));
         }
         return list;
+    }
+
+
+    @RequestMapping(value = "/testTcp",method = RequestMethod.POST)
+    @ResponseBody
+    public String testTcp(){
+        Socket socket = null;
+        String port = "";
+        try {
+            socket = new Socket("127.0.0.1",9080);
+            port = String.valueOf(socket.getChannel());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return port;
     }
 
 }

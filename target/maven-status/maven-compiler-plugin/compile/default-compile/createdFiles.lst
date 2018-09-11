@@ -1,0 +1,7 @@
+com\kx\springboot\bean\User.class
+com\kx\springboot\aop\HttpAspect.class
+com\kx\springboot\service\impl\TestInterFaceImpl.class
+com\kx\springboot\Application.class
+com\kx\springboot\controller\UserController.class
+com\kx\springboot\controller\TestBootController.class
+com\kx\springboot\service\TestInterFace.class
